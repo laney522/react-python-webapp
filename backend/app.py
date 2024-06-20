@@ -15,9 +15,16 @@ frontend_folder = os.path.join(os.getcwd(),"..","frontend")
 dist_folder = os.path.join(frontend_folder,"dist")
 
 # Server static files from the "dist" folder under the "frontend" directory
-@app.route("/")
-def index():
-  return "", 200
+@app.route("/",defaults={"filename":""})
+@app.route("/<path:filename>")
+def index(filename):
+  if not filename:
+    filename = "index.html"
+  return send_from_directory(dist_folder,filename)
+
+# @app.route("/")
+# def index():
+#   return "", 200
 
 import routes
 
