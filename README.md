@@ -11,7 +11,13 @@ python3 -m venv venv
 ````
 * On Window:
 ````
+python -m venv venv
+````
+* run backend
+````
+cd .\backend\
 venv\Scripts\activate
+flask run --reload
 ````
 Install the dependenvies:
 * On macOs and Linux:
